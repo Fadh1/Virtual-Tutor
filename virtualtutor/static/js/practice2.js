@@ -1,12 +1,10 @@
-import { questions,questions1,questions2 } from './questions.js'
-
+import { questions1} from './questions.js'
 
 (function () {
     var questionCounter = 0; //Tracks question number
     var selections = []; //Array containing user choices
-    var currQuestionsArr = questions;
-    var quiz = $('#quiz'); //Quiz div object
-    var calcResults = 0;
+    var currQuestionsArr = shuffle(questions1);
+    var quiz = $('#practice'); //Quiz div object
     var numCorrect = 0;
 
     // Display initial question
@@ -71,8 +69,15 @@ import { questions,questions1,questions2 } from './questions.js'
             id: 'question'
         });
 
-        var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+        var header = $('<h2>Question ' + (index + 1) + '</h2>');
         qElement.append(header);
+
+        var image = $('<img>', {
+            src: currQuestionsArr[index].image,
+            width: "450",
+            height: "500"
+        });
+        qElement.append(image);
 
         var question = $('<p>').append(currQuestionsArr[index].question);
         qElement.append(question);
@@ -146,35 +151,27 @@ import { questions,questions1,questions2 } from './questions.js'
         score.append('Your score is ' + numCorrect + ' questions out of ' +
             currQuestionsArr.length);
 
-        $.getJSON('/calc', {
-        num: numCorrect
-      },
-        function(data) {
-            $("#result").text(data.result);
-            calcResults = data.result;
-            if (calcResults > 70 && currQuestionsArr == questions){
-                currQuestionsArr = questions1
-            }
-            else if (calcResults > 70 && currQuestionsArr == questions1){
-                currQuestionsArr = questions2
-            }
-        });
-
         return score;
     }
 
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
 
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
 
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
 
-     //$('#calculate').on('click', function(e) {
-     //   e.preventDefault();
-     //   $.getJSON('/calc', {
-     //   num: numCorrect
-     // },
-     //   function(data) {
-      //      $("#aria-valuenow").text(data.result);
-      //  });
-    //});
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
 })();
-
 

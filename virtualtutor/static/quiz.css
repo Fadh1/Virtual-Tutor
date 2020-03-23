@@ -82,3 +82,9 @@ ul {
     display:none;
     width: 90px;
 }
+
+.img {
+    width:  100px;
+    height: 100px;
+    background-size: cover;
+}

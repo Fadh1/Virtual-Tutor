@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id='container'>
+        <div class = "row">
+            <div class="card col-12">
+                <div class="card-body">
+                    <div id='practice'></div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <button type="button" class="btn btn-secondary" href='#' id='prev'>Prev</button>
+                    <button type="button" class="btn btn-secondary" href='#' id='next'>Next</button>
+                    <button type="button" class="btn btn-secondary" href='#' id='start'>Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='module' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script type='module' src={{ url_for('static', filename='js/assessment.js') }}></script>
+    <script type='module' src={{ url_for('static', filename='js/practice4.js') }}></script>
+    <script type="module" src="static/js/questions.js"></script>
+
+{% endblock content %}
