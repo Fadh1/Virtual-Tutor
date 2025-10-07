@@ -2,7 +2,7 @@
 
 An intelligent adaptive learning platform that uses **Bayesian Knowledge Tracing** to personalize educational content and track student mastery across multiple subjects.
 
-## 🎓 Project Overview
+## Project Overview
 
 Virtual Tutor was developed as a final year project for the **Bachelor of Computer Science** program at **Nanyang Technological University** (completed April 2020). The platform demonstrates the application of probabilistic machine learning to education, creating a personalized tutoring experience that adapts to each student's knowledge level.
 
