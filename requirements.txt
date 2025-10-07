@@ -1,0 +1,8 @@
+Flask==1.1.1
+Flask-SQLAlchemy==2.4.1
+Flask-WTF==0.14.3
+WTForms==2.2.1
+pymc3==3.8
+theano==1.0.4
+numpy==1.18.1
+arviz==0.7.0
